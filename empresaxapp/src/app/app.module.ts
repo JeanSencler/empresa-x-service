@@ -7,6 +7,7 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 import { AddressListComponent } from './address-list/address-list.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { AddressFormComponent } from './address-form/address-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { AddressFormComponent } from './address-form/address-form.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

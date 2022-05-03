@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Customer } from './customer';
 
@@ -11,7 +11,7 @@ export class CustomerService {
   private customerUrl !: string;
 
   constructor(private http: HttpClient) {
-    this.customerUrl = "http://localhost:8080/customers";
+    this.customerUrl = 'http://localhost:8080/customers';
   }
   //Obteniendo todos los Customers{GET}
   public findAll(): Observable<Customer[]>{
@@ -20,7 +20,10 @@ export class CustomerService {
   //Guardando nuevo Customer{POST}
   public save(customer: Customer) {
     return this.http.post<Customer>(this.customerUrl, customer);
-
-  //Falta implemtentacion para update & delete
   }
+  //Actualizando Customer{PUT}
+  public update(customer: Customer){
+    return this.http.put<Customer>(this.customerUrl, customer);
+  }
+
 }

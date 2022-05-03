@@ -20,7 +20,10 @@ export class AddressService {
   //Guardando nuevo Address{POST}
   public save(address: Address) {
     return this.http.post<Address>(this.addressUrl, address);
-
-  //Falta implemtentacion para update & delete
   }
+  //Actualizando Address{PUT}
+  public update(address: Address) {
+    return this.http.put<Address>(this.addressUrl, address);
+  }
+
 }

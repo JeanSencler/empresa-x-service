@@ -17,6 +17,13 @@
           <td>{{ customer.lastname }}</td>
           <td>{{ customer.state }}</td>
           <td>{{ customer.address }}</td>
+          <td>
+            <table>
+              <tr *ngFor="let address of customer.address">
+                <td>{{address.address}}</td>
+              </tr>
+            </table>
+          </td>
           <!--<td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>-->
         </tr>
       </tbody>

@@ -1,0 +1,12 @@
+{
+  "/customers/*": {
+      "target": "http://localhost:8080",
+      "secure": false,
+      "logLevel": "debug"
+  },
+  "/addresses/*": {
+    "target": "http://localhost:8080",
+    "secure": false,
+    "logLevel": "debug"
+}
+}

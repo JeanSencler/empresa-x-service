@@ -3,33 +3,33 @@
     <form (ngSubmit)="onSubmit()" #customerForm="ngForm">
       <div class="form-group">
         <label for="name">FirstName</label>
-        <input type="text" (ngModel)="customer.firstname"
+        <input type="text" [(ngModel)]="customer.firstname"
           class="form-control"
           id="firstname"
           name="firstname"
           placeholder="Enter your FirstName"
-          required #name="ngModel">
+          required #firstname="ngModel">
       </div>
-      <div [hidden]="!name.pristine" class="alert alert-danger">FirstName is required</div>
+      <div [hidden]="!firstname.pristine" class="alert alert-danger">FirstName is required</div>
       <div class="form-group">
         <label for="name">LastName</label>
-        <input type="text" (ngModel)="customer.lastname"
+        <input type="text" [(ngModel)]="customer.lastname"
           class="form-control"
           id="lastname"
           name="lastname"
           placeholder="Enter your LastName"
-          required #name="ngModel">
+          required #lastname="ngModel">
       </div>
-      <div [hidden]="!name.pristine" class="alert alert-danger">LastName is required</div>
+      <div [hidden]="!lastname.pristine" class="alert alert-danger">LastName is required</div>
       <div class="form-group">
         <label for="email">State</label>
-        <input type="radio" (ngModel)="customer.state"
+        <input type="radio" [(ngModel)]="customer.state"
           class="form-control"
           id="state"
           name="state"
           placeholder="Enter your state"
-          required #email="ngModel">
-        <div [hidden]="!email.pristine" class="alert alert-danger">State is required</div>
+          required #state="ngModel">
+        <div [hidden]="!state.pristine" class="alert alert-danger">State is required</div>
       </div>
       <button type="submit" [disabled]="!customerForm.form.valid"
         class="btn btn-info">Submit</button>
