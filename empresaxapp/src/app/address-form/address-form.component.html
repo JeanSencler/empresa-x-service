@@ -1,1 +1,48 @@
-<p>address-form works!</p>
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #addressForm="ngForm">
+      <div class="form-group">
+        <label for="name">Description</label>
+        <input type="text" [(ngModel)]="address.description"
+          class="form-control"
+          id="description"
+          name="description"
+          placeholder="Enter your description"
+          required #description="ngModel">
+      </div>
+      <div [hidden]="!description.pristine" class="alert alert-danger">Description is required</div>
+      <div class="form-group">
+        <label for="name">Address Type</label>
+        <input type="text" [(ngModel)]="address.addressType"
+          class="form-control"
+          id="addressType"
+          name="addressType"
+          placeholder="Enter your Address Type"
+          required #addressType="ngModel">
+      </div>
+      <div [hidden]="!addressType.pristine" class="alert alert-danger">Address Type is required</div>
+      <div class="form-group">
+        <label for="name">Country</label>
+        <input type="text" [(ngModel)]="address.country"
+          class="form-control"
+          id="country"
+          name="country"
+          placeholder="Enter your Address Type"
+          required #country="ngModel">
+      </div>
+      <div [hidden]="!addressType.pristine" class="alert alert-danger">Country Type is required</div>
+      <div class="form-control">
+        <label for="email">State</label>
+        <input type="radio" [(ngModel)]="address.state"
+          class="form-control"
+          id="state"
+          name="state"
+          placeholder="Enter your state"
+          required #state="ngModel">
+        <div [hidden]="!state.pristine" class="alert alert-danger">State is required</div>
+      </div>
+      <button type="submit" [disabled]="!addressForm.form.valid"
+        class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>

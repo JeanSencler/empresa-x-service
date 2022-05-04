@@ -1,7 +1,7 @@
 export class Address {
-  addressid !: BigInt;
-  address !: string;
+  addressId !: BigInt;
+  description !: string;
   country !: string;
-  addresstype !: string;
+  addressType !: string;
   state !: string;
 }

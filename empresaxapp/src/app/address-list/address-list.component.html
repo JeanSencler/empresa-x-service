@@ -1,6 +1,6 @@
 <div class="card my-5">
   <div class="card-body">
-    <table class="table table-bordered table-striped">
+    <table class="table table-boderless table-hover table-striped">
       <thead class="thead-dark">
         <tr>
           <th scope="col">id</th>
@@ -12,9 +12,9 @@
       </thead>
       <tbody>
         <tr *ngFor="let address of addresses">
-          <td>{{ address.addressid }}</td>
-          <td>{{ address.address }}</td>
-          <td>{{ address.addresstype }}</td>
+          <td>{{ address.addressId }}</td>
+          <td>{{ address.description }}</td>
+          <td>{{ address.addressType }}</td>
           <td>{{ address.country }}</td>
           <td>{{ address.state }}</td>
           <!--<td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>-->

@@ -1,9 +1,9 @@
 import { Address } from "./address";
 
 export class Customer {
-  customerid !: BigInt;
-  firstname !: string;
-  lastname !: string;
+  customerId !: BigInt;
+  firstName !: string;
+  lastName !: string;
   state !: string;
   address !: Array<Address>;
 }
