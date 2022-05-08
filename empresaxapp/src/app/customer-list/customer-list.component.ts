@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Customer } from '../customer';
 import { CustomerService } from '../customer.service';
 
@@ -11,7 +12,7 @@ export class CustomerListComponent implements OnInit {
 
   customers !: Customer[];
 
-  constructor(private customerService: CustomerService) {
+  constructor(private customerService: CustomerService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -19,5 +20,4 @@ export class CustomerListComponent implements OnInit {
       this.customers = data;
     });
   }
-
 }

@@ -9,6 +9,8 @@ import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { AddressFormComponent } from './address-form/address-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
+import { AddressDetailComponent } from './address-detail/address-detail.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
     CustomerListComponent,
     AddressListComponent,
     CustomerFormComponent,
-    AddressFormComponent
+    AddressFormComponent,
+    CustomerDetailComponent,
+    AddressDetailComponent
   ],
   imports: [
     BrowserModule,

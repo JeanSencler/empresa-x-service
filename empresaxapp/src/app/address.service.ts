@@ -17,6 +17,11 @@ export class AddressService {
   public findAll(): Observable<Address[]>{
     return this.http.get<Address[]>(this.addressUrl);
   }
+  //Obteniendo por id{GET}
+  findAddress(id: number): Observable<Address> {
+    const url = `${this.addressUrl}/${id}`;
+    return this.http.get<Address>(url);
+  }
   //Guardando nuevo Address{POST}
   public save(address: Address) {
     return this.http.post<Address>(this.addressUrl, address);
@@ -25,5 +30,9 @@ export class AddressService {
   public update(address: Address) {
     return this.http.put<Address>(this.addressUrl, address);
   }
-
+  //Borrar por id
+  deleteAddress(id: number): Observable<Address> {
+    const url = `${this.addressUrl}/${id}`;
+    return this.http.delete<Address>(url);
+  }
 }

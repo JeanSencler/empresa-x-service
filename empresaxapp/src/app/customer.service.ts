@@ -17,6 +17,10 @@ export class CustomerService {
   public findAll(): Observable<Customer[]>{
     return this.http.get<Customer[]>(this.customerUrl);
   }
+  findCustomer(id: number): Observable<Customer> {
+    const url = `${this.customerUrl}/${id}`;
+    return this.http.get<Customer>(url);
+  }
   //Guardando nuevo Customer{POST}
   public save(customer: Customer) {
     return this.http.post<Customer>(this.customerUrl, customer);
@@ -26,4 +30,8 @@ export class CustomerService {
     return this.http.put<Customer>(this.customerUrl, customer);
   }
 
+  deleteCustomer(id: number): Observable<Customer> {
+    const url = `${this.customerUrl}/${id}`;
+    return this.http.delete<Customer>(url);
+  }
 }

@@ -1,0 +1,45 @@
+<div class="col-md-12">
+  <div class="card rounded my-5">
+    <div class="card-header text-white bg-dark">
+        <h4>Detail</h4>
+      </div>
+      <div class="card-body form-group">
+        <h5 class="card-title">{{customer.firstName +' '+ customer.lastName}}</h5>
+        <div class="row">
+          <label for="customernum" class="col-sm-2 col-form-label">Number: </label>
+          <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="customernum" value="{{customer.customerId}}">
+          </div>
+        </div>
+        <div class="row">
+          <label for="firstname" class="col-sm-2 col-form-label">First Name: </label>
+          <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="firstname" value="{{customer.firstName}}">
+          </div>
+        </div>
+        <div class="row">
+          <label for="lastname" class="col-sm-2 col-form-label">Last Name: </label>
+          <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="lastname" value="{{customer.lastName}}">
+          </div>
+        </div>
+        <div class="row">
+          <label for="state" class="col-sm-2 col-form-label">State: </label>
+          <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="state" value="{{customer.state}}">
+          </div>
+        </div>
+        <hr>
+        <p class="font-weight-bold">Addresses</p>
+        <table>
+          <tr *ngFor="let address of customer.address">
+            <td>{{address.description}}</td>
+          </tr>
+        </table>
+        <hr>
+        <div>
+          <button type="button" class="btn btn-danger btn-lg" (click)="deleteCustomer(customer.customerId)">Delete </button>
+        </div>
+      </div>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 import { Address } from "./address";
 
 export class Customer {
-  customerId !: BigInt;
+  customerId !: number;
   firstName !: string;
   lastName !: string;
   state !: string;

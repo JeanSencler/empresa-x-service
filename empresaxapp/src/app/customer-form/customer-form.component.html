@@ -22,14 +22,28 @@
       </div>
       <div [hidden]="!lastname.pristine" class="alert alert-danger">LastName is required</div>
       <div class="form-group">
-        <label for="email">State</label>
-        <input type="radio" [(ngModel)]="customer.state"
-          class="form-control"
-          id="state"
-          name="state"
-          placeholder="Enter your state"
-          required #state="ngModel">
-        <div [hidden]="!state.pristine" class="alert alert-danger">State is required</div>
+        <label>State</label>
+        <br>
+        <div class="form-check-inline">
+          <div class="form-check">
+            <input type="radio" [(ngModel)]="customer.state"
+              class="form-check-input"
+              id="stateRadio1"
+              name="state"
+              value="S"
+              required #state="ngModel">
+              <label class="form-check-label" for="stateRadio1">Active</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" [(ngModel)]="customer.state"
+              class="form-check-input"
+              id="stateRadio2"
+              name="state"
+              value="N"
+              required #state="ngModel">
+              <label class="form-check-label" for="stateRadio2">Inactive</label>
+          </div>
+        </div>
       </div>
       <button type="submit" [disabled]="!customerForm.form.valid"
         class="btn btn-info">Submit</button>
