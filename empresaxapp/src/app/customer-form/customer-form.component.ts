@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Customer } from '../customer';
 import { CustomerService } from '../customer.service';
@@ -8,15 +8,28 @@ import { CustomerService } from '../customer.service';
   templateUrl: './customer-form.component.html',
   styleUrls: ['./customer-form.component.css']
 })
-export class CustomerFormComponent {
+export class CustomerFormComponent implements OnInit{
 
   customer !: Customer;
-
+  id !: number;
   constructor(
     private route: ActivatedRoute,
       private router: Router,
         private customerService: CustomerService) {
-    this.customer = new Customer();
+    //this.customer = new Customer();
+  }
+
+  ngOnInit(): void {
+
+    this.id = this.route.snapshot.params['id'];
+
+      if (!this.id == null) {
+        this.customerService.findCustomer(this.id).subscribe(data => { this.customer = data });
+
+      }
+      else{
+        this.customer = new Customer();
+      }
   }
 
   onSubmit() {
@@ -26,5 +39,6 @@ export class CustomerFormComponent {
   gotoCustomerList() {
     this.router.navigate(['/customers']);
   }
+
 
 }

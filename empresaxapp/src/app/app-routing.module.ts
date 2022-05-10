@@ -10,6 +10,7 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 const routes: Routes = [
   {path: 'customers', component: CustomerListComponent},
   {path: 'savecustomer', component: CustomerFormComponent},
+  {path: 'editcustomer/:id', component: CustomerFormComponent},
   {path: 'customers/:id', component: CustomerDetailComponent},
   {path: 'addresses', component: AddressListComponent},
   {path: 'addresses/:id', component: AddressDetailComponent},

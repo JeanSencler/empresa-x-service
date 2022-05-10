@@ -39,6 +39,7 @@
         <hr>
         <div>
           <button type="button" class="btn btn-danger btn-lg" (click)="deleteCustomer(customer.customerId)">Delete </button>
+          <button type="button" class="btn btn-primary btn-lg" routerLink="/editcustomer/{{customer.customerId}}}" >Editar </button>
         </div>
       </div>
   </div>
