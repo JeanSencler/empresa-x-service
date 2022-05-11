@@ -1,4 +1,4 @@
-package com.empresax.customer.service;
+package com.empresax.customer.service.customer;
 
 import java.util.List;
 import java.util.Objects;

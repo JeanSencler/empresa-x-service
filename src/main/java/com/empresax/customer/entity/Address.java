@@ -10,7 +10,7 @@ public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long addressId;
-	private String address;
+	private String description;
 	private String country;
 	private String addressType;
 	private char state;
@@ -19,10 +19,10 @@ public class Address {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Address(long addressId, String address, String country, String addressType, char state) {
+	public Address(long addressId, String description, String country, String addressType, char state) {
 		super();
 		this.addressId = addressId;
-		this.address = address;
+		this.description = description;
 		this.country = country;
 		this.addressType = addressType;
 		this.state = state;
@@ -36,12 +36,12 @@ public class Address {
 		this.addressId = addressId;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getCountry() {
@@ -70,7 +70,7 @@ public class Address {
 
 	@Override
 	public String toString() {
-		return "Address [addressId=" + addressId + ", address=" + address + ", country=" + country + ", addressType="
+		return "Address [addressId=" + addressId + ", address=" + description + ", country=" + country + ", addressType="
 				+ addressType + ", state=" + state + "]";
 	}
 }

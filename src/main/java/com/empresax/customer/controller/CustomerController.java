@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,15 +15,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.empresax.customer.entity.Customer;
-import com.empresax.customer.service.ICustomerService;
+import com.empresax.customer.service.customer.ICustomerService;
 
 @RestController
+@CrossOrigin(allowedHeaders = "*")
 @RequestMapping("/customers")
-public class CostumerController {
+public class CustomerController {
 	private final ICustomerService customerService;
 
 	@Autowired
-	public CostumerController(ICustomerService customerService) {
+	public CustomerController(ICustomerService customerService) {
 		this.customerService = customerService;
 	}
 
