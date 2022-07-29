@@ -2,6 +2,7 @@ package com.empresax.customer.controller;
 
 import java.util.List;
 
+import com.empresax.customer.service.IServiceTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,22 +16,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.empresax.customer.entity.Customer;
-import com.empresax.customer.service.customer.ICustomerService;
 
 @RestController
 @CrossOrigin(allowedHeaders = "*")
 @RequestMapping("/customers")
 public class CustomerController {
-	private final ICustomerService customerService;
+	private final IServiceTemplate<Customer> customerService;
 
 	@Autowired
-	public CustomerController(ICustomerService customerService) {
+	public CustomerController(IServiceTemplate<Customer> customerService) {
 		this.customerService = customerService;
 	}
 
 	@GetMapping
 	public ResponseEntity<List<Customer>> getAll() {
-		return ResponseEntity.ok(this.customerService.fetchCustomer());
+		return ResponseEntity.ok(this.customerService.fetchAllRecords());
 	}
 
 	@GetMapping("/{id}")
@@ -40,16 +40,16 @@ public class CustomerController {
 
 	@PostMapping
 	public ResponseEntity<Customer> create(final @RequestBody Customer customer) {
-		return ResponseEntity.ok(this.customerService.saveCustomer(customer));
+		return ResponseEntity.ok(this.customerService.saveRecord(customer));
 	}
 
 	@PutMapping("/update/{id}")
 	public ResponseEntity<Customer> update(final @RequestBody Customer customer , final @PathVariable long id) {
 		System.out.println(customer);
-		return ResponseEntity.ok(this.customerService.updateCustomer(customer,id));
+		return ResponseEntity.ok(this.customerService.updateRecord(customer,id));
 	}
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deletetById(final @PathVariable long id) {
-		return ResponseEntity.ok(this.customerService.deleteCustomer(id));
+		return ResponseEntity.ok(this.customerService.deleteRecord(id));
 	}
 }

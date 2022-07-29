@@ -1,35 +1,34 @@
 package com.empresax.customer.service.address;
 
-import java.util.List;
-import java.util.Objects;
-
+import com.empresax.customer.entity.Address;
+import com.empresax.customer.repository.IAddressRepository;
+import com.empresax.customer.service.IServiceTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.empresax.customer.entity.Address;
-import com.empresax.customer.entity.Customer;
-import com.empresax.customer.repository.IAddressRepository;
+import java.util.List;
+import java.util.Objects;
 
 @Service
-public class AddressServiceImpl implements IAddressService {
+public class AddressServiceImpl implements IServiceTemplate<Address> {
 
 	@Autowired
 	private IAddressRepository addressRepository;
 
 	@Override
-	public Address saveAddress(Address address) {
+	public Address saveRecord(Address address) {
 		return addressRepository.save(address);
 	}
 
 	@Override
-	public List<Address> fetchAllAddresses() {
-		return (List<Address>) addressRepository.findAll();
+	public List<Address> fetchAllRecords() {
+		return addressRepository.findAll();
 	}
 
 	@Override
-	public Address updateAddress(Address address, long addressId) {
+	public Address updateRecord(Address address, long addressId) {
 		Address addressDB = findById(addressId);
-		if (!addressDB.equals(null)) {
+		if (!Objects.isNull(addressDB)) {
 			return addressRepository.save(address);
 		}
 		throw new NullPointerException();
@@ -41,17 +40,17 @@ public class AddressServiceImpl implements IAddressService {
 	}
 
 	@Override
-	public String deleteAddress(long addressId) {
+	public String deleteRecord(long addressId) {
 
 	
 		Address customerDB = findById(addressId);
 			if (!Objects.isNull(customerDB)) {
-				System.out.println(customerDB.toString());
+				//System.out.println(customerDB.toString());
 				addressRepository.deleteById(addressId);
 				return customerDB.toString();
 			}
 				
-			return "No existe";
+			return "No exist";
 		
 	}
 

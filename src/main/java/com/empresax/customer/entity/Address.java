@@ -16,7 +16,6 @@ public class Address {
 	private char state;
 
 	public Address() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Address(long addressId, String description, String country, String addressType, char state) {
