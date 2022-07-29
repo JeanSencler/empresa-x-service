@@ -1,30 +1,29 @@
-package com.empresax.customer.service;
+package com.empresax.customer.generic;
 
 import java.util.List;
 import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-@Service
-public class EntityServiceImpl<Object> implements IServiceTemplate<Object> {
+
+public abstract class AbstractServiceImpl<T> {
 
 	@Autowired
-	private IEntityRepository<Object> entityRepository;
+	private AbstractRepository<T> entityRepository;
 	
-	@Override
-	public Object saveRecord(Object customer) {
+
+	public T saveRecord(T customer) {
 		return entityRepository.save(customer);
 	}
 
-	@Override
-	public List<Object> fetchAllRecords() {
+
+	public List<T> fetchAllRecords() {
 		return entityRepository.findAll();
 	}
 
-	@Override
-	public Object updateRecord(Object customer, long customerId) {
-		Object customerDB = findById(customerId);
+
+	public T updateRecord(T customer, long customerId) {
+		T customerDB = findById(customerId);
 		if (!Objects.isNull(customerDB)) {
 			customerDB = customer;
 			return entityRepository.save(customerDB);
@@ -32,16 +31,16 @@ public class EntityServiceImpl<Object> implements IServiceTemplate<Object> {
 		throw new NullPointerException();
 	}
 
-	@Override
-	public Object findById(long customerId) {
+
+	public T findById(long customerId) {
 		return entityRepository.findById(customerId).orElse(null);
 	}
 
-	@Override
+
 	public String deleteRecord(long customerId) {
 
 	
-			Object customerDB = findById(customerId);
+			T customerDB = findById(customerId);
 			if (!Objects.isNull(customerDB)) {
 				//System.out.println(customerDB.toString());
 				entityRepository.deleteById(customerId);
